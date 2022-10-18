@@ -1,7 +1,3 @@
-# birthday-wishes-python
-
-
-
 # Schedule an Email in Python
 
 ## Table of Contents
