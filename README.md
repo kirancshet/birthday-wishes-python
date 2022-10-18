@@ -24,7 +24,7 @@ Add your Gmail credentials conf.py
 
 ## Usage <a name = "usage"></a>
 
-python send_email.py
+python send_birthday_wish.py
 
 ## Contact <a name = "contact"></a>
 
