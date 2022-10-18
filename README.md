@@ -16,7 +16,7 @@ You often come across a number of instances, where we need to send an email at a
 
 ### Prerequisites <a name = "prerequisites"></a>
 
-Add your Gmail credentials conf.py
+Add your Gmail credentials in conf.py
 
 ## Usage <a name = "usage"></a>
 
