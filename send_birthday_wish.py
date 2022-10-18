@@ -4,7 +4,7 @@
 # Author:      Kiran Chandrashekhar
 # Created:     18-Oct-2022
 # -------------------------------------------------------------------------------
-
+from random import randint
 from dateutil.parser import parse
 from datetime import datetime
 
@@ -15,7 +15,7 @@ Send Birthday wishes with a simple Birthday wish in Python
 Approach:
  - Loop through all the users,
  - Compare if the current date is same as the birthdate
- - If yes, prepare a personalized birthday message
+ - If yes, prepare a personalized birthday message with a random birthday image from the assets directory
  - Send an email to the user
 
 '''
@@ -43,6 +43,8 @@ class BirthdayWish:
         May this year bring you greater success and achievements in your career
         and happiness to cherish in the years to come.</p>
 
+        <img src="https://raw.githubusercontent.com/kirancshet/birthday-wishes-python/main/assets/birthday{rand_num}.png" width="600">
+
         <p>Regards,<br/>
         Sapnaedu</p>
         '''
@@ -51,22 +53,21 @@ class BirthdayWish:
 
         for ind in names:
             # print(ind)
-            if self.check_birthday(ind):
+            if self.check_birthday_is_today(ind):
+
+                ind['rand_num'] = randint(1,5)
 
                 email_subject = subject.format(**ind)
                 email_message = message.format(**ind)
-
+              
                 obj = send_email.SendEmail()
-                obj.send_email(email_subject, 'kiran.cshet@gmail.com', email_message)
-
-                print(email_subject)
-                print(email_message)
+                obj.send_email(email_subject, ind['email'], email_message)
 
     # --------------------------------------
     #   Check if the birthday is today
     # --------------------------------------
 
-    def check_birthday(self, name):
+    def check_birthday_is_today(self, name):
         success = False
         try:
             current_day = datetime.today().day
